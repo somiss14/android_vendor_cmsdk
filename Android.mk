@@ -206,8 +206,14 @@ cmplat_docs_src_files := \
     $(call all-java-files-under, $(cyanogenmod_sdk_src)) \
     $(call all-html-files-under, $(cyanogenmod_sdk_src))
 
-cmplat_docs_java_libraries := \
+cmplat_api_java_libraries := \
     org.cyanogenmod.platform.sdk
+
+cmplat_docs_java_libraries := \
+    android-support-v4 \
+    android-support-annotations \
+    org.cyanogenmod.platform.sdk \
+    $(cmsdk_LOCAL_JAVA_LIBRARIES)
 
 # SDK version as defined
 cmplat_docs_SDK_VERSION := 14.0
@@ -228,7 +234,7 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES:= \
     $(cmplat_docs_src_files)
 LOCAL_INTERMEDIATE_SOURCES:= $(cmplat_LOCAL_INTERMEDIATE_SOURCES)
-LOCAL_JAVA_LIBRARIES:= $(cmplat_docs_java_libraries)
+LOCAL_JAVA_LIBRARIES:= $(cmplat_api_java_libraries)
 LOCAL_MODULE_CLASS:= $(cmplat_docs_LOCAL_MODULE_CLASS)
 LOCAL_DROIDDOC_SOURCE_PATH:= $(cmplat_docs_LOCAL_DROIDDOC_SOURCE_PATH)
 LOCAL_ADDITIONAL_JAVA_DIR:= $(intermediates.COMMON)/src
